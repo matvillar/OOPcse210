@@ -1,10 +1,10 @@
 public class Journal
 {
 
-   public List<string> _entries = new List<string>();
+   public List<Entry> _entries = new List<Entry>();
   
 
- public void AddEntry(string newEntry)
+ public void AddEntry(Entry newEntry)
  {  
      
      _entries.Add(newEntry);
@@ -14,10 +14,10 @@ public class Journal
  
  public void displayEntries()
  {
-   foreach (string entry in _entries)
+   foreach (Entry entry in _entries)
    {
     
-     Console.WriteLine(entry);
+     Console.WriteLine(entry.Stringify());
    }
  }
 }

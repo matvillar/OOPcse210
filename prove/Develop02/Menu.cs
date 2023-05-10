@@ -28,8 +28,8 @@ public class Menu
      
           case "1":
           Entry _entry = new Entry();
-          string newEntry = _entry.Stringify();
-          _journal.AddEntry(newEntry);
+         
+          _journal.AddEntry(_entry);
           break;
           case "2":
           if(_journal._entries.Count != 0){
