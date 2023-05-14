@@ -41,6 +41,20 @@ public class Menu
           
           }
           break;
+          case "3":
+          if(_journal._entries.Count != 0){
+            Journal.saveEntryToFile(_journal._entries);
+            Console.WriteLine("file saved!");
+            
+          }
+          else{
+            Console.WriteLine("\n------------ No entries to save ------------ \n\n");
+          }
+          break;
+          
+          case "4":
+          _journal._entries = Journal.loadEntriesFromFile();
+          break;
           
           
 

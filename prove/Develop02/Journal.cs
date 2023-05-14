@@ -2,7 +2,7 @@ public class Journal
 {
 
    public List<Entry> _entries = new List<Entry>();
-  
+  private string _fileName = "";
 
  public void AddEntry(Entry newEntry)
  {  
@@ -19,5 +19,41 @@ public class Journal
     
      Console.WriteLine(entry.Stringify());
    }
+ }
+
+ public static void saveEntryToFile(List<Entry> entries)
+ {
+   Console.WriteLine($"What is the file name?");
+    string _fileName = Console.ReadLine() ?? string.Empty;
+    string _filePath = $"./savedFiles/{_fileName.ToLower().Trim()}.txt";
+
+    using (StreamWriter writer = new StreamWriter(_filePath))
+    {
+      foreach (Entry entry in entries)
+      {
+        writer.WriteLine(entry.Stringify());
+      }
+    }
+   
+ }
+ public static List<Entry> loadEntriesFromFile()
+ {
+  List<Entry> _entries = new List<Entry>();
+
+  Console.WriteLine($"What is the file name?");
+  string _fileName = Console.ReadLine() ?? string.Empty;
+
+  string[] lines = System.IO.File.ReadAllLines($"./savedFiles/{_fileName.ToLower().Trim()}.txt");
+
+  foreach (string line in lines)
+  {
+     Console.WriteLine($"{line}");
+     
+  }
+
+  
+  //  string _filePath = $"./savedFiles/{fileName.ToLower().Trim()}.txt";
+ 
+ return _entries;
  }
 }
