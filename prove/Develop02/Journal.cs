@@ -25,6 +25,9 @@ public class Journal
  {
    Console.WriteLine($"What is the file name?");
     string _fileName = Console.ReadLine() ?? string.Empty;
+    if(_fileName == ""){
+      _fileName = "default";
+    }
     string _filePath = $"./savedFiles/{_fileName.ToLower().Trim()}.txt";
 
     using (StreamWriter writer = new StreamWriter(_filePath))
@@ -42,6 +45,8 @@ public class Journal
 
   Console.WriteLine($"What is the file name?");
   string _fileName = Console.ReadLine() ?? string.Empty;
+ if(_fileName == ""){
+   _fileName = "default";}
 
   string[] lines = System.IO.File.ReadAllLines($"./savedFiles/{_fileName.ToLower().Trim()}.txt");
 
@@ -51,8 +56,6 @@ public class Journal
      
   }
 
-  
-  //  string _filePath = $"./savedFiles/{fileName.ToLower().Trim()}.txt";
  
  return _entries;
  }

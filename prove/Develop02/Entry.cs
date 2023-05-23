@@ -11,6 +11,8 @@ public class Entry
         Console.WriteLine(randomPrompt);
         _response = Console.ReadLine() ?? string.Empty;
         _date = DateTime.Now;
+
+        
                
     }
 

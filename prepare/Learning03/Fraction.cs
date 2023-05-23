@@ -6,27 +6,27 @@ public class Fraction
 
 public Fraction()
 {
-_top = 1;
-_bottom = 1;
+Top = 1;
+Bottom = 1;
 }
 public Fraction(int number)
 {
-_top = number;
-_bottom = 1;
+Top = number;
+Bottom = 1;
 }
 public Fraction(int top, int bottom)
 {
-_top = top;
-_bottom = bottom;
+Top = top;
+Bottom = bottom;
 }
 
 public string GetFractionString()
 {
-  return $"{_top}/{_bottom}";
+  return $"{Top}/{Bottom}";
 }
 public double GetFractionValue()
 {
-  double value = (double)_top / (double)_bottom;
+  double value = (double)Top / (double)Bottom;
   return Math.Round(value, 2);
 }
 public int Top
