@@ -1,58 +1,89 @@
+using System;
 using System.Text;
+
 public class Word
 {
-  private string _word;
-  private bool _isHidden = false;
-  
-  string _hiddenWord;
+    private string _word;
+    // private bool _isHidden = false;
+    // private string _hiddenWordString;
+    private List<string> wordList = new List<string>();
+    private List <string> hiddenWordList = new List<string>();
+    
+    // private bool allWordsHidden = false;
+    
+    
 
-public Word()
+    public Word()
 
-  { 
-   
-     WordGetSet = _word;
-     Console.WriteLine("Whats the word you want to add to the scripture?");
-     WordGetSet = Console.ReadLine() ?? string.Empty;
-     Console.WriteLine($"typeoff: {WordGetSet}");
-     
-   
-  }
- public string HideWord()
-{
-  _isHidden = true;
-  if (_isHidden == true)
-  {
-     StringBuilder builder = new StringBuilder();
-        foreach (char c in WordGetSet)
+    {
+        Console.WriteLine("What's the word you want to add to the scripture?");
+        _word = Console.ReadLine() ?? string.Empty;
+
+        foreach (string word in _word.Split(' '))
         {
-            if (char.IsLetter(c))
-            {
-                builder.Append('_');
-            }
-            else
-            {
-                builder.Append(c);
-            }
+            wordList.Add(word);
         }
-        return builder.ToString();
-    // _hiddenWord = new string('_', WordGetSet.Length);
-  }
-  return _hiddenWord;
+    }
+
+
+    public void ShowWord()
+    {
+      foreach (string word in wordList)
+      {
+        Console.Write($"{word} ");
+        
+      }
+
+
   
-}
-public string ShowWord()
+    }
+
+public void AddHiddenWord()
 {
- _isHidden = false;
-  if (_isHidden == false)
-  {
-    _hiddenWord = WordGetSet;
-  }
-  return _hiddenWord;
-}
-public string WordGetSet
-  {
-    get { return _word; }
-    set { _word = value; }
+    Random random = new Random();
+    int randomWord = random.Next(0, wordList.Count);
+    string hiddenWord = wordList[randomWord];
+ 
+
+
+ if (hiddenWordList.Contains(hiddenWord))
+        {
+            // Word is already hidden, choose another word
+            AddHiddenWord();
+            return;
+        }
+         hiddenWordList.Add(hiddenWord);
+          
+    foreach (string word in wordList)
+    {
+
+// if word is already hidden, then choose another word
+
+
+    if(hiddenWordList.Contains(word))
+    {
+      // replace each letter in word with "_"
+      StringBuilder _hiddenWordString = new StringBuilder();
+      foreach (char letter in word)
+      {
+        _hiddenWordString.Append("_");
+      }
+      Console.Write($"{_hiddenWordString} ");
+    }
+    else
+    {
+      Console.Write($"{word} ");
+    }
+    
+    }
+
+    // if (hiddenWordList.Count == wordList.Count)
+    // {
+    //   allWordsHidden = true;
+    // }
+ 
   }
 
 }
+    
+    

@@ -1,4 +1,4 @@
-public class AllScriptures
-{
-  List<Scripture> _scriptures = new List<Scripture>();
-}
+// public class AllScriptures
+// {
+//   List<Scripture> _scriptures = new List<Scripture>();
+// }

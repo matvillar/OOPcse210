@@ -5,30 +5,19 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Scripture scripture1 = new Scripture("John 3:16", "For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.");
-        // Scripture scripture2 = new Scripture("John 3:17", "For God sent not his Son into the world to condemn the world; but that the world through him might be saved.");
 
-Scripture scripture = new Scripture();
-Word word1 = new Word();
-scripture.addWordToScripture(word1);
-scripture.DisplayScripture();
+        Reference reference = new Reference("John", 3, 16, 18);
+        Console.WriteLine(reference.StringifyRef());
 
-       
+        Scripture newScript = new Scripture(reference, new Word());
 
-    //
-    //     string userWord = Console.ReadLine();
-    //     word1.WordGetSet = userWord;
+Console.WriteLine("Press any key to hide a random word or press 'Q' to quit");
+       while (Console.ReadKey().Key != ConsoleKey.Q  )
 
-
-
+         {
+       newScript.HideWord();
     
-       
-        
-        
-        // Console.WriteLine(word1.HideWord());
-        // Console.WriteLine(word1.ShowWord());
-    
-   
 
+         }
     }
 }

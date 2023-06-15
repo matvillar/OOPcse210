@@ -1,52 +1,27 @@
+
 public class Scripture
 {
-  // private string _reference;
+  private Reference _reference;
+  private Word _text;
 
-  public List<Word> _wordsToScripture = new List<Word>();
-
-
-
-public void addWordToScripture(Word word1)
+public Scripture (Reference reference, Word text)
 {
-Console.WriteLine($"Text: {word1}");
-
-  _wordsToScripture.Add(word1);
-  
+  _reference = reference;
+  _text = text;
 }
+
+
 public void DisplayScripture()
 {
+  _text.ShowWord();
+ 
+}
+public void HideWord()
+{
+  _text.AddHiddenWord();
 
-  
-  foreach (Word word in _wordsToScripture)
-  {
-    Console.WriteLine(word.ShowWord());
-    Console.WriteLine(word.HideWord());
-    
-  }
 }
 
 
-  // public Scripture(string reference, string vers)
-  // {
-  //   Reference = reference;
-  //   Vers = vers;
 
-  // }
-
-  // public string StringifyScripture()
-  // {
-  //   return $"{Reference}, {Vers}";
-  // }
-
-  // public string Reference
-  // {
-  //   get { return _reference; }
-  //   set { _reference = value; }
-  // }
-
-  // public string Vers
-  // {
-  //   get { return _vers; }
-  //   set { _vers = value; }
-  // }
 }
