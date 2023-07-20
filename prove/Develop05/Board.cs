@@ -84,13 +84,16 @@ public static List<GoalStructure> LoadEntries()
     {
          string _nameGoal = goal[1];
     }
+  // display goals
 
+  foreach (GoalStructure goals in _goalEntry)
+  {
+    Console.WriteLine($"{goals.StringifyGoal()}.");
+  
+  } 
 
   
-
-     
-  }
-  return _goalEntry;
 }
-
+return _goalEntry;
+}
 }

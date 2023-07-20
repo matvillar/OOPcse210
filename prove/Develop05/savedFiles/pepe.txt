@@ -1,1 +1,1 @@
-hola, dada, 30, False
+SimpleGoal,dasda,dasdasd,12,False
